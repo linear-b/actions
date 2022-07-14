@@ -1,0 +1,20 @@
+name: "gitStream"
+description: gitStream"
+author: "LinearB"
+branding:
+  icon: "alert-triangle"
+  color: "yellow"
+inputs:
+  repo:
+    description: "The Org/Repo"
+  branch:
+    description: "Head branch"
+  use_cache:
+    description: "Use cached checks for lanes"
+runs:
+  using: "docker"
+  image: "docker://gitstream/parser:0.1.13"
+  args:
+    - ${{ inputs.repo }}
+    - ${{ inputs.branch }}
+    - ${{ inputs.use_cache }}
