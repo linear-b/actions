@@ -6,15 +6,24 @@ branding:
   color: "yellow"
 inputs:
   repo:
-    description: "The Org/Repo"
+    description: "The repo name in the fomrat of `org/repo`"
   branch:
-    description: "Head branch"
+    description: "The branch name"
+  base:
+    description: "The name of the base branch or target branch of the pull request"
   use_cache:
-    description: "Use cached checks for lanes"
+    description: "Use cached checks results"
+  source_path:
+    description: "The path to the source direcotry"
+  cm_path:
+    description: "The path to the CM rules direcotry"
 runs:
   using: "docker"
-  image: "docker://gitstream/parser:0.1.13"
+  image: "docker://gitstream/parser:0.2.1"
   args:
     - ${{ inputs.repo }}
     - ${{ inputs.branch }}
+    - ${{ inputs.base }}
     - ${{ inputs.use_cache }}
+    - ${{ inputs.source_path }}
+    - ${{ inputs.cm_path }}
