@@ -19,7 +19,7 @@ inputs:
     description: "The path to the CM rules direcotry"
 runs:
   using: "docker"
-  image: "docker://gitstream/parser:0.2.1"
+  image: "docker://gitstream/parser:0.2.2"
   args:
     - ${{ inputs.repo }}
     - ${{ inputs.branch }}
